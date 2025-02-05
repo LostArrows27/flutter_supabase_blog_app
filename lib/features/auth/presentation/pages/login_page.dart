@@ -1,28 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_supabase/core/theme/app_pallete.dart';
-import 'package:flutter_supabase/features/auth/presentation/pages/login_page.dart';
+import 'package:flutter_supabase/features/auth/presentation/pages/signup_page.dart';
 import 'package:flutter_supabase/features/auth/presentation/widget/auth_field.dart';
 import 'package:flutter_supabase/features/auth/presentation/widget/auth_gradient_button.dart';
 
-class SignUpPage extends StatefulWidget {
-  const SignUpPage({super.key});
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
 
-  // static method to use with Navigator.push
-  static route() => MaterialPageRoute(builder: (context) => SignUpPage());
+  static route() => MaterialPageRoute(builder: (context) => LoginPage());
 
   @override
-  State<SignUpPage> createState() => _SignUpPageState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
-class _SignUpPageState extends State<SignUpPage> {
+class _LoginPageState extends State<LoginPage> {
   final formKey = GlobalKey<FormState>();
-  final nameController = TextEditingController();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
   @override
   void dispose() {
-    nameController.dispose();
     emailController.dispose();
     passwordController.dispose();
     super.dispose();
@@ -31,7 +28,6 @@ class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
       body: Padding(
         padding: const EdgeInsets.all(15.0),
         child: Form(
@@ -44,8 +40,6 @@ class _SignUpPageState extends State<SignUpPage> {
                 style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 30),
-              AuthField(placeholder: 'Name', controller: nameController),
-              const SizedBox(height: 15),
               AuthField(
                 placeholder: 'Email',
                 controller: emailController,
@@ -61,14 +55,14 @@ class _SignUpPageState extends State<SignUpPage> {
               const SizedBox(height: 30),
               GestureDetector(
                 onTap: () {
-                  Navigator.push(context, LoginPage.route());
+                  Navigator.push(context, SignUpPage.route());
                 },
                 child: RichText(
                   text: TextSpan(
-                      text: "Already have an account? ",
+                      text: "Don't have an account? ",
                       children: [
                         TextSpan(
-                            text: 'Sign In',
+                            text: 'Sign Up',
                             style: Theme.of(context)
                                 .textTheme
                                 .titleMedium
