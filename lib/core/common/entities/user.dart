@@ -1,3 +1,5 @@
+// core not depened on features
+// features depend on core
 class User {
   final String id;
   final String name;

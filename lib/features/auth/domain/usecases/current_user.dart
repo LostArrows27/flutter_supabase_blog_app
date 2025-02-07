@@ -1,6 +1,6 @@
 import 'package:flutter_supabase/core/error/failure.dart';
 import 'package:flutter_supabase/core/usecase/usecase.dart';
-import 'package:flutter_supabase/features/auth/domain/entities/user.dart';
+import 'package:flutter_supabase/core/common/entities/user.dart';
 import 'package:flutter_supabase/features/auth/domain/repository/auth_repository.dart';
 import 'package:fpdart/fpdart.dart';
 

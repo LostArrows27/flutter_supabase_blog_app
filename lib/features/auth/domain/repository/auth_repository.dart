@@ -1,7 +1,7 @@
 // abstract interface class
 // -> subclass have to implement all method
 import 'package:flutter_supabase/core/error/failure.dart';
-import 'package:flutter_supabase/features/auth/domain/entities/user.dart';
+import 'package:flutter_supabase/core/common/entities/user.dart';
 import 'package:fpdart/fpdart.dart';
 
 abstract interface class AuthRepository {

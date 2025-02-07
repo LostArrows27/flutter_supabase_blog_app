@@ -1,7 +1,7 @@
 import 'package:flutter_supabase/core/error/failure.dart';
 import 'package:flutter_supabase/core/error/server_exception.dart';
 import 'package:flutter_supabase/features/auth/data/datasources/auth_remote_data_source.dart';
-import 'package:flutter_supabase/features/auth/domain/entities/user.dart';
+import 'package:flutter_supabase/core/common/entities/user.dart';
 import 'package:flutter_supabase/features/auth/domain/repository/auth_repository.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:supabase_flutter/supabase_flutter.dart' as sb;

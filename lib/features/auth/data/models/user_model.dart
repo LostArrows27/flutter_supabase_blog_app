@@ -1,4 +1,4 @@
-import 'package:flutter_supabase/features/auth/domain/entities/user.dart';
+import 'package:flutter_supabase/core/common/entities/user.dart';
 
 class UserModel extends User {
   UserModel({required super.id, required super.name, required super.email});
