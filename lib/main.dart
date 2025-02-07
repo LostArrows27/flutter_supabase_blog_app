@@ -4,6 +4,7 @@ import 'package:flutter_supabase/core/common/cubit/app_user/app_user_cubit.dart'
 import 'package:flutter_supabase/core/theme/theme.dart';
 import 'package:flutter_supabase/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:flutter_supabase/features/auth/presentation/pages/signup_page.dart';
+import 'package:flutter_supabase/features/blog/presentation/pages/blog_page.dart';
 import 'package:flutter_supabase/init_dependencies.dart';
 
 void main() async {
@@ -47,12 +48,7 @@ class _MyAppState extends State<MyApp> {
         },
         builder: (context, isLoggedIn) {
           if (isLoggedIn) {
-            return const Scaffold(
-                body: Center(
-                    child: Text(
-              "Home Page",
-              style: TextStyle(fontSize: 50),
-            )));
+            return const BlogPage();
           }
           return const SignUpPage();
         },
