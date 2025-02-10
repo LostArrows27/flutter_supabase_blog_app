@@ -10,6 +10,7 @@ import 'package:flutter_supabase/features/auth/presentation/bloc/auth_bloc.dart'
 import 'package:flutter_supabase/features/blog/data/datasources/blog_remote_data_source.dart';
 import 'package:flutter_supabase/features/blog/data/repositories/blog_repository_impl.dart';
 import 'package:flutter_supabase/features/blog/domain/repositories/blog_repository.dart';
+import 'package:flutter_supabase/features/blog/domain/usecases/get_all_blog.dart';
 import 'package:flutter_supabase/features/blog/domain/usecases/upload_blog.dart';
 import 'package:flutter_supabase/features/blog/presentation/bloc/blog_bloc.dart';
 import 'package:get_it/get_it.dart';
@@ -71,8 +72,14 @@ void _initBlog() {
         serviceLocator(),
       ),
     )
+    ..registerFactory(
+      () => GetAllBlog(
+        serviceLocator(),
+      ),
+    )
     // Bloc
     ..registerLazySingleton(
-      () => BlogBloc(serviceLocator()),
+      () =>
+          BlogBloc(uploadBlog: serviceLocator(), getAllBlog: serviceLocator()),
     );
 }
