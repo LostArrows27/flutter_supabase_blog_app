@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter_supabase/core/error/server_exception.dart';
 import 'package:flutter_supabase/features/blog/data/models/blog_model.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:uuid/uuid.dart';
 
 abstract interface class BlogRemoteDataSource {
   Future<BlogModels> uploadBlog(BlogModels blog);
@@ -24,7 +25,10 @@ class BlogRemoteDataSourceImpl implements BlogRemoteDataSource {
           .single();
 
       return BlogModels.fromJson(blogData);
-    } catch (e) {
+    } catch (e, c) {
+      print('UPLOAD BLOG ERROR');
+      print(e);
+      print(c);
       throw ServerException(e.toString());
     }
   }
@@ -33,12 +37,15 @@ class BlogRemoteDataSourceImpl implements BlogRemoteDataSource {
   Future<String> uploadBlogImage(
       {required File image, required BlogModels blogModels}) async {
     try {
-      String imagePath = '/${blogModels.posterId}/blog.id';
+      String imagePath = '/${blogModels.posterId}/${Uuid().v4()}';
 
       await supabaseClient.storage.from('blog_images').upload(imagePath, image);
 
       return supabaseClient.storage.from('blog_images').getPublicUrl(imagePath);
-    } catch (e) {
+    } catch (e, c) {
+      print('UPLOAD IMAGE ERROR');
+      print(e);
+      print(c);
       throw ServerException(e.toString());
     }
   }

@@ -4,6 +4,7 @@ import 'package:flutter_supabase/core/common/cubit/app_user/app_user_cubit.dart'
 import 'package:flutter_supabase/core/theme/theme.dart';
 import 'package:flutter_supabase/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:flutter_supabase/features/auth/presentation/pages/signup_page.dart';
+import 'package:flutter_supabase/features/blog/presentation/bloc/blog_bloc.dart';
 import 'package:flutter_supabase/features/blog/presentation/pages/blog_page.dart';
 import 'package:flutter_supabase/init_dependencies.dart';
 
@@ -15,7 +16,8 @@ void main() async {
   runApp(MultiBlocProvider(
     providers: [
       BlocProvider(create: (_) => serviceLocator<AppUserCubit>()),
-      BlocProvider(create: (_) => serviceLocator<AuthBloc>())
+      BlocProvider(create: (_) => serviceLocator<AuthBloc>()),
+      BlocProvider(create: (_) => serviceLocator<BlogBloc>())
     ],
     child: const MyApp(),
   ));
